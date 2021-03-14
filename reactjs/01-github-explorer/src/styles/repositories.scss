@@ -7,8 +7,14 @@ section.repository-list {
 
   ul {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 
     li {
+      margin: 30px;
+      padding: 16px;
+      border-radius: 16px;
+      border: solid 1px #000;
       & + li {
         margin-top: 20px;
       }
