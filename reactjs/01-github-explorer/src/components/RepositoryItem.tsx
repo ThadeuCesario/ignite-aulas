@@ -1,4 +1,12 @@
-export default function RepositoryItem(props) {
+interface RepositoryItemProps {
+    repository: {
+        name: string,
+        description: string,
+        url: string,
+    }
+}
+
+export default function RepositoryItem(props: RepositoryItemProps) {
 
     const {repository} = props;
     /**

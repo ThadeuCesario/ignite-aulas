@@ -4,8 +4,15 @@ import RepositoryItem from "./RepositoryItem";
 
 import '../styles/repositories.scss';
 
+interface Repository {
+    id: number;
+    name: string;
+    description: string;
+    url: string;
+}
+
 const RepositoryList = () => {
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     useEffect(() => {
         fetch('https://api.github.com/users/ThadeuCesario/repos')
@@ -19,14 +26,9 @@ const RepositoryList = () => {
 
             <ul>
                 {repositories.map(repository => {
-                    const {id, name, description, url} = repository;
-                    const repositoryData = {
-                        name,
-                        description,
-                        url
-                    }
+                    const {id} = repository;
                     return (
-                        <RepositoryItem key={id} repository={repositoryData} />
+                        <RepositoryItem key={id} repository={repository} />
                     )
                 })}
             </ul>
