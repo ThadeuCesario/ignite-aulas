@@ -1,12 +1,17 @@
 import logoImg from '../../assets/logo.svg';
 import {Container, Content} from './styles';
 
-function Header() {
+interface HeaderProps {
+  onToggleTransactionModalOpen: () => void,
+}
+
+function Header(props: HeaderProps) {
+  const {onToggleTransactionModalOpen} = props;
   return (
     <Container>
       <Content>
         <img src={logoImg} alt="dt money"/>
-        <button type="button">Nova transação</button>
+        <button type="button" onClick={onToggleTransactionModalOpen}>Nova transação</button>
       </Content>
     </Container>
   )
