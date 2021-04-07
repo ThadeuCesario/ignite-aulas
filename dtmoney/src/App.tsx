@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import Modal from 'react-modal';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import GlobalStyle from "./styles/global";
+import NewTransactionModal from './components/NewTransactionModal';
 
 function App() {
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
@@ -12,15 +12,7 @@ function App() {
     <>
       <Header onToggleTransactionModalOpen={handleToggleTransactionModalOpen}/>
       <Dashboard />
-
-      <Modal 
-        isOpen={isNewTransactionModalOpen}
-        onRequestClose={handleToggleTransactionModalOpen}
-        ariaHideApp={false}
-      >
-        <h2>Cadastrar transação</h2>
-      </Modal>
-
+      <NewTransactionModal isNewTransactionModalOpen={isNewTransactionModalOpen} handleToggleTransactionModalOpen={handleToggleTransactionModalOpen}/>
       <GlobalStyle />
     </>
   );
