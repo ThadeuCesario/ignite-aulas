@@ -72,6 +72,22 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0.25rem;
   }
 
+  .react-modal-close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    border: 0;
+    background: transparent;
+    padding: 8px;
+
+    transition: filter 0.2s;
+    font-size: 0;
+
+    &:hover {
+      filter: brightness(0.9)
+    }
+  }
+
   body, input, textarea, button {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
