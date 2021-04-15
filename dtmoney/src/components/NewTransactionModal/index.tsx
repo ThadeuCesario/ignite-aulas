@@ -13,19 +13,27 @@ interface NewTransactionModalProps {
 
 function NewTransactionModal(props: NewTransactionModalProps) {
     const {createTransaction} = useContext(TransactionsContext);
+
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState(0)
     const [category, setCategory] = useState('');
-    const {isNewTransactionModalOpen, handleToggleTransactionModalOpen} = props;
-
     const [type, setType] = useState('deposit'); 
 
-    function handleCreateNewTransaction(event: FormEvent) {
+    const {isNewTransactionModalOpen, handleToggleTransactionModalOpen} = props;
+
+
+    async function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault();
 
-        createTransaction({
+        await createTransaction({
             title, amount, category, type
-        })
+        });
+
+        setTitle('');
+        setAmount(0);
+        setCategory('');
+        setType('deposit');
+        handleToggleTransactionModalOpen();
     }
 
     return (
