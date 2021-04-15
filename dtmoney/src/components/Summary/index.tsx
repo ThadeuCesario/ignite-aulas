@@ -6,7 +6,7 @@ import {Container} from './styles';
 import {TransactionsContext} from '../../TransactionsContext';
 
 function Summary() {
-  const transactions = useContext(TransactionsContext);
+  const {transactions} = useContext(TransactionsContext);
 
   console.log('Summary transactions', transactions);
 
